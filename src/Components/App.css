@@ -1,0 +1,10 @@
+.outer-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background-color: #c2c2d6;
+}
