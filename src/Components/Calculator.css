@@ -49,6 +49,13 @@ button:hover {
     z-index: 1;
 }
 
+button:active {
+    color: black;
+    z-index: 1;
+    border: none;
+    outline: 1px solid grey;
+}
+
 .AC {
     background: #ac3939;
     grid-area: 1/1/1/3;

@@ -18,10 +18,10 @@ class Calculator extends React.Component {
             case '=': {
                 if (this.state.input !== '')
                 {
-                    var ans='';
+                    var ans = '';
                     try
                     {
-                        ans = eval(this.state.input);
+                        ans = eval(this.state.input)
                     }
                     catch(err)
                     {
@@ -30,26 +30,32 @@ class Calculator extends React.Component {
                     if (ans === undefined)
                         this.setState({output: "Math Error"});
                     else
-                        this.setState({input: this.state.question, output: ans});
-                    break;
+                        this.setState({input: this.state.input, output: ans});
                 }
+                break;
             }
             case 'AC': {
-                this.setState({ output: '', input: '' });
+                this.setState({ 
+                    output: '', 
+                    input: '' 
+                });
                 break;
             }
 
             case 'Del': {
                 var str = this.state.input;
                 str = str.slice(0, -1);
-                this.setState({input: str});
+                this.setState({
+                    input: str,
+                    output: str
+                });
                 break;
             }
 
             default: {
                 this.setState({ 
                     input: this.state.input += value,
-                    output: this.state.input += value
+                    output: this.state.output += value
                 })
                 break;
             }
