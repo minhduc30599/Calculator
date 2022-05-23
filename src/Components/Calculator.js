@@ -47,7 +47,10 @@ class Calculator extends React.Component {
             }
 
             default: {
-                this.setState({ input: this.state.input += value})
+                this.setState({ 
+                    input: this.state.input += value,
+                    output: this.state.input += value
+                })
                 break;
             }
         }
@@ -57,10 +60,10 @@ class Calculator extends React.Component {
         return(
             <div className="container calculator">
                 <div className="fomula-display">
-                    {this.state.input}
+                    {this.state.input.length < 14 ? this.state.input : "Digit limit met"}
                 </div>
                 <div className="result-display">
-                    {this.state.output}
+                    {this.state.input.length < 14 ? this.state.output : "Digit limit met"}
                 </div>
                 <div className="button">
                     <button id="AC" className="AC" onClick={this.onPressButton}>AC</button>
