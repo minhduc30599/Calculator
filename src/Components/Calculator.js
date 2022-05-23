@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import "./Calculator.css";
 import Author from "./Author";
 
@@ -9,11 +9,13 @@ class Calculator extends React.Component {
             input: '',
             output: ''
         };
+        this.changeStyle = React.createRef();
         this.onPressButton = this.onPressButton.bind(this);
     }
 
     onPressButton(event){
         const value = event.target.id;
+        const changeStyle = this.changeStyle.current;
         switch (value) {
             case '=': {
                 if (this.state.input !== '')
@@ -56,7 +58,7 @@ class Calculator extends React.Component {
                 this.setState({ 
                     input: this.state.input += value,
                     output: this.state.output += value
-                })
+                }); 
                 break;
             }
         }
@@ -72,9 +74,9 @@ class Calculator extends React.Component {
                     {this.state.input.length < 14 ? this.state.output : "Digit limit met"}
                 </div>
                 <div className="button">
-                    <button id="AC" className="AC" onClick={this.onPressButton}>AC</button>
+                    <button id="AC" ref={this.changeStyle} className="AC" onClick={this.onPressButton}>AC</button>
                     <button id="/" className="operator" onClick={this.onPressButton}>/</button>
-                    <button id="x" className="operator" onClick={this.onPressButton}>x</button>
+                    <button id="*" className="operator" onClick={this.onPressButton}>x</button>
                     <button id="7" className="number" onClick={this.onPressButton}>7</button>
                     <button id="8" className="number" onClick={this.onPressButton}>8</button>
                     <button id="9" className="number" onClick={this.onPressButton}>9</button>
