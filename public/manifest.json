@@ -3,7 +3,7 @@
   "name": "React calculator",
   "icons": [
     {
-      "src": "calculatorLogo.png",
+      "src": "https://ibb.co/LhCmBbb",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
