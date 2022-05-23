@@ -10,6 +10,7 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+
 .fomula-display {
     height: 20px;
     line-height: 20px;
@@ -17,7 +18,6 @@
     word-wrap: break-word;
     color: #fea500;
 }
-
 .result-display {
     height: 35px;
     line-height: 35px;
@@ -33,6 +33,20 @@
     width: 100%;
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: repeat(5, 65px);
+}
+
+button {
+    color: white;
+    border: none;
+    outline: 1px solid black;
+    box-shadow: none;
+  }
+  
+button:hover {
+    outline: 1px solid grey;
+    box-shadow: none;
+    border: none;
+    z-index: 1;
 }
 
 .AC {

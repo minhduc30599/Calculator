@@ -1,7 +1,6 @@
 import React from "react";
 import "./Calculator.css";
 import Author from "./Author";
-import Button from "./Button";
 
 class Calculator extends React.Component {
     constructor(props) {
@@ -13,26 +12,44 @@ class Calculator extends React.Component {
         this.onPressButton = this.onPressButton.bind(this);
     }
 
-    onPressButton(event) {
-        const value = event.target.value;
-        switch(value) {
-            case 'equal':
-                let ans = '';
-                try {
-                    ans = eval(this.state.input);
+    onPressButton(event){
+        const value = event.target.id;
+        switch (value) {
+            case '=': {
+                if (this.state.input !== '')
+                {
+                    var ans='';
+                    try
+                    {
+                        ans = eval(this.state.input);
+                    }
+                    catch(err)
+                    {
+                        this.setState({output: "Math Error"});
+                    }
+                    if (ans === undefined)
+                        this.setState({output: "Math Error"});
+                    else
+                        this.setState({input: this.state.question, output: ans});
+                    break;
                 }
-                catch(err) {
-                    this.setState({output: 'Math error'});
-                }
+            }
+            case 'AC': {
+                this.setState({ output: '', input: '' });
                 break;
-            case 'Del':
+            }
+
+            case 'Del': {
+                var str = this.state.input;
+                str = str.slice(0, -1);
+                this.setState({input: str});
                 break;
-            case 'AC':
-                this.setState({
-                    input: '',
-                    output:''
-                });
+            }
+
+            default: {
+                this.setState({ input: this.state.input += value})
                 break;
+            }
         }
     }
 
@@ -46,24 +63,24 @@ class Calculator extends React.Component {
                     {this.state.output}
                 </div>
                 <div className="button">
-                    <Button id="AC" className="AC">AC</Button>
-                    <Button id="/" className="operator">/</Button>
-                    <Button id="x" className="operator">x</Button>
-                    <Button id="7" className="number">7</Button>
-                    <Button id="8" className="number">8</Button>
-                    <Button id="9" className="number">9</Button>
-                    <Button id="-" className="operator">-</Button>
-                    <Button id="4" className="number">4</Button>
-                    <Button id="5" className="number">5</Button>
-                    <Button id="6" className="number">6</Button>
-                    <Button id="+" className="operator">+</Button>
-                    <Button id="1" className="number">1</Button>
-                    <Button id="2" className="number">2</Button>
-                    <Button id="3" className="number">3</Button>
-                    <Button id="=" className="equal">=</Button>
-                    <Button id="0" className="number">0</Button>
-                    <Button id="." className="number">.</Button>
-                    <Button id="Del" className="delete">Del</Button>
+                    <button id="AC" className="AC" onClick={this.onPressButton}>AC</button>
+                    <button id="/" className="operator" onClick={this.onPressButton}>/</button>
+                    <button id="x" className="operator" onClick={this.onPressButton}>x</button>
+                    <button id="7" className="number" onClick={this.onPressButton}>7</button>
+                    <button id="8" className="number" onClick={this.onPressButton}>8</button>
+                    <button id="9" className="number" onClick={this.onPressButton}>9</button>
+                    <button id="-" className="operator" onClick={this.onPressButton}>-</button>
+                    <button id="4" className="number" onClick={this.onPressButton}>4</button>
+                    <button id="5" className="number" onClick={this.onPressButton}>5</button>
+                    <button id="6" className="number" onClick={this.onPressButton}>6</button>
+                    <button id="+" className="operator" onClick={this.onPressButton}>+</button>
+                    <button id="1" className="number" onClick={this.onPressButton}>1</button>
+                    <button id="2" className="number" onClick={this.onPressButton}>2</button>
+                    <button id="3" className="number" onClick={this.onPressButton}>3</button>
+                    <button id="=" className="equal" onClick={this.onPressButton}>=</button>
+                    <button id="0" className="number" onClick={this.onPressButton}>0</button>
+                    <button id="." className="number" onClick={this.onPressButton}>.</button>
+                    <button id="Del" className="delete" onClick={this.onPressButton}>Del</button>
                 </div>
                 <Author />
             </div>
