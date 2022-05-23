@@ -35,20 +35,6 @@
     grid-template-rows: repeat(5, 65px);
 }
 
-button {
-    color: white;
-    border: none;
-    outline: 1px solid black;
-    box-shadow: none;
-}
-
-button:hover {
-    outline: 1px solid grey;
-    box-shadow: none;
-    border: none;
-    z-index: 1;
-}
-
 .AC {
     background: #ac3939;
     grid-area: 1/1/1/3;
@@ -68,5 +54,10 @@ button:hover {
 }
 
 #zero {
-    grid-area: 5/1/5/3;
+    grid-area: 5/1/5/2;
+}
+
+.delete {
+    background: #ac3939;
+    grid-area: 5/3/5/4;
 }

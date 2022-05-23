@@ -1,0 +1,13 @@
+input {
+  color: white;
+  border: none;
+  outline: 1px solid black;
+  box-shadow: none;
+}
+
+input:hover {
+  outline: 1px solid grey;
+    box-shadow: none;
+    border: none;
+    z-index: 1;
+}
